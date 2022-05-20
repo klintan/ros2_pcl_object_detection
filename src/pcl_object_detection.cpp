@@ -185,9 +185,9 @@ void publish_cloud(rclcpp::Publisher &pub, pcl::PointCloud<pcl::PointXYZ>::Ptr c
 {
     auto cluster_msg = std::make_shared<sensor_msgs::msg::PointCloud2>();
     pcl::toROSMsg(*cluster, *cluster_msg);
-    cluster_msg->header.frame_id = "/map";
-    cluster_msg->header.stamp = rclcpp::Clock()::now();
-    pub.publish(*cluster_msg);
+    cluster_msg->header.frame_id = "map";
+    cluster_msg->header.stamp = clock_->now();
+    pub->publish(*cluster_msg);
 }
 
 void initialize_kalman_filter()
