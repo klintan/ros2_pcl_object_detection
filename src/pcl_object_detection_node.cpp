@@ -33,9 +33,10 @@ int main(int argc, char * argv[])
     rclcpp::executors::SingleThreadedExecutor exec;
 
     const rclcpp::NodeOptions options;
-    auto pcl_object_detection = std::make_shared<pcl_object_detection::PclObjectDetection>(options);
+    auto my_node = std::make_shared<pcl_object_detection::PclObjectDetection>(options);
+    //auto pcl_object_detection = rclcpp::Node::make_shared("PclObjectDetection");
 
-    exec.add_node(pcl_object_detection);
+    exec.add_node(my_node);
     
     exec.spin();
     
