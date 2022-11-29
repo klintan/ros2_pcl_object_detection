@@ -27,7 +27,7 @@ find_package(rclcpp_components REQUIRED)
 find_package(sensor_msgs REQUIRED)
 find_package(shape_msgs REQUIRED)
 find_package(tf2_ros REQUIRED)
-
+find_package(visualization_msgs REQUIRED)
 
 include_directories(include ${cv_bridge_INCLUDE_DIRS})
 
@@ -48,6 +48,7 @@ ament_target_dependencies(pcl_object_detection
   pcl_ros
   shape_msgs
   tf2_ros
+  visualization_msgs
 )
 
 rclcpp_components_register_nodes(pcl_object_detection "pcl_object_detection::PclObjectDetection")
